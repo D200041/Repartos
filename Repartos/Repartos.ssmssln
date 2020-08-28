@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# SQL Server Management Studio Solution File, Format Version 18.00
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "Repartos", "Repartos\Repartos.ssmssqlproj", "{72172492-99DC-4C55-9FE2-CC2B8151413A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Instalar", "Instalar", "{F4812F61-DC7A-46C7-AC96-DF46B9C0AA37}"
+	ProjectSection(SolutionItems) = preProject
+		Repartos\Todo.sql = Repartos\Todo.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Esquemas", "Esquemas", "{3D05CF68-38AC-45EB-BA7C-A705A06CD918}"
+	ProjectSection(SolutionItems) = preProject
+		Repartos\Esquemas.sql = Repartos\Esquemas.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tablas", "Tablas", "{D3A0E3B6-0C30-4ED7-B1DD-9D5C1DA4CBE1}"
+	ProjectSection(SolutionItems) = preProject
+		Repartos\Repartos.Clientes.sql = Repartos\Repartos.Clientes.sql
+		Repartos\Repartos.Lugares.sql = Repartos\Repartos.Lugares.sql
+		Repartos\Repartos.Repartidores.sql = Repartos\Repartos.Repartidores.sql
+		Repartos\Repartos.Repartos.sql = Repartos\Repartos.Repartos.sql
+		Repartos\Repartos.TipoDocumentos.sql = Repartos\Repartos.TipoDocumentos.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Base", "Base", "{EBF79CF1-5CF9-4172-A550-4571ED897409}"
+	ProjectSection(SolutionItems) = preProject
+		Repartos\Base.sql = Repartos\Base.sql
+		Repartos\Borrado.sql = Repartos\Borrado.sql
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Default = Default|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{72172492-99DC-4C55-9FE2-CC2B8151413A}.Default|Default.ActiveCfg = Default
+		{F4CD7811-D0FA-45E0-9DA9-D99FC282DE88}.Default|Default.ActiveCfg = Default
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0D00B5E1-E5FA-4BF1-8FCC-3D76A242490D}
+	EndGlobalSection
+EndGlobal
