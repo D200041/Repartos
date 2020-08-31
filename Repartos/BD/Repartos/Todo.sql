@@ -1,4 +1,4 @@
-:setvar path "D:\Users\Jamesit0\OneDrive\Documentos\UMNG\Ingeniería Web\Proyecto\Repartos\Repartos\"
+:setvar path "D:\Users\Jamesit0\OneDrive\Documentos\UMNG\Ingeniería Web\Proyecto\Repartos\BD\Repartos\"
 :r $(path)\Borrado.sql
 :r $(path)\Base.sql
 :r $(path)\Esquemas.sql
