@@ -55,3 +55,56 @@ BEGIN
 	CHECK CONSTRAINT "FK_Repartos_Clientes";
 END;
 GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Almacena la información de los repartos.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'Repartos';
+GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Código autonumérico de la tabla.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'Repartos',
+	@level2type = N'COLUMN',
+	@level2name = N'Id';
+GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Fecha del reparto.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'Repartos',
+	@level2type = N'COLUMN',
+	@level2name = N'Fecha';
+GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Cliente a quien va dirigido el reparto.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'Repartos',
+	@level2type = N'COLUMN',
+	@level2name = N'Cliente';
+GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Indica si un reparto fue entregado o no.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'Repartos',
+	@level2type = N'COLUMN',
+	@level2name = N'Entregado';
+GO

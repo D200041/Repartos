@@ -75,3 +75,111 @@ BEGIN
 	CHECK CONSTRAINT "FK_Clientes_TipoDocumentos";
 END;
 GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Almacena los datos de los clientes.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'Clientes';
+GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Llave autonumérica de la tabla.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'Clientes',
+	@level2type = N'COLUMN',
+	@level2name = N'Id';
+GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Tipo de documento del cliente.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'Clientes',
+	@level2type = N'COLUMN',
+	@level2name = N'TipoDocumento';
+GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Número del documento del cliente.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'Clientes',
+	@level2type = N'COLUMN',
+	@level2name = N'Documento';
+GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Primer nombre del cliente.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'Clientes',
+	@level2type = N'COLUMN',
+	@level2name = N'Nombre1';
+GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Segundo nombre del cliente.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'Clientes',
+	@level2type = N'COLUMN',
+	@level2name = N'Nombre2';
+GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Primer apellido del cliente.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'Clientes',
+	@level2type = N'COLUMN',
+	@level2name = N'Apellido1';
+GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Segundo apellido del cliente.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'Clientes',
+	@level2type = N'COLUMN',
+	@level2name = N'Apellido2';
+GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Barrio en el que vive el cliente.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'Clientes',
+	@level2type = N'COLUMN',
+	@level2name = N'Barrio';
+GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Dirección en la que vive el cliente.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'Clientes',
+	@level2type = N'COLUMN',
+	@level2name = N'Domicilio';
+GO

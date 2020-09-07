@@ -1,13 +1,13 @@
 ﻿## Descripción
 
-
+Almacena la informaci�n de los tipos de documentos.
 
 ## Propiedades
 
 |Propiedad|Valor|
 |---------|-----|
-|Fecha De Creación|2020-08-28T19:09:26.173|
-|Última Modificación|2020-08-28T19:09:26.210|
+|Fecha De Creación|2020-09-06T21:30:05.017|
+|Última Modificación|2020-09-06T21:30:05.063|
 |Propietario|dbo|
 |Pertenece Al Esquema|Sí|
 |Esquema|Repartos|
@@ -39,8 +39,8 @@
 
 |Nombre|Descripción|Llave Primaria|Llave Foránea|Permite Nulos|Autonumérica|Inicio Autonumérico|Incremento Autonumérico|Tipo De Dato|Esquema Del Tipo De Dato|Tipo De Dato Del Sistema|Tamaño|Precisión|Escala|Intercalación|Calculada|Relleno Ansi|Columna De Indentidad De Fila|Texto Calculado|Persistida|Nombre Del Valor Por Defecto|Esquema Predeterminado|Nombre Restricción Predeterminada|Regla|Esquema De La Regla|Determinística|Precisa|No Para Replicación|Texto Completo Indexado|Documento XML|Espacio De Nombres Del Esquema XML|Esquema Del Espacio De Nombres Del Esquema XML|
 |------|-----------|--------------|-------------|-------------|------------|-------------------|-----------------------|------------|------------------------|------------------------|------|---------|------|-------------|---------|------------|-----------------------------|---------------|----------|----------------------------|----------------------|---------------------------------|-----|-------------------|--------------|-------|-------------------|-----------------------|-------------|----------------------------------|----------------------------------------------|
-|Id||Sí|No|No|No|0|0|tinyint|sys|tinyint|1|3|0||No|No|No||No||||||No|No|False|No|No|||
-|Nombre||No|No|No|No|0|0|varchar|sys|varchar|32|0|0|Latin1_General_CS_AS|No|Sí|No||No||||||No|No|False|No|No|||
+|Id|C�digo del tipo de documento.|Sí|No|No|No|0|0|tinyint|sys|tinyint|1|3|0||No|No|No||No||||||No|No|False|No|No|||
+|Nombre|Nombre del tipo de documento.|No|No|No|No|0|0|varchar|sys|varchar|32|0|0|Latin1_General_CS_AS|No|Sí|No||No||||||No|No|False|No|No|||
 
 ## Índices
 
@@ -63,6 +63,12 @@ CREATE TABLE [Repartos].[TipoDocumentos](
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'C�digo del tipo de documento.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'TipoDocumentos', @level2type=N'COLUMN',@level2name=N'Id'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Nombre del tipo de documento.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'TipoDocumentos', @level2type=N'COLUMN',@level2name=N'Nombre'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Almacena la informaci�n de los tipos de documentos.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'TipoDocumentos'
 GO
 ~~~
 

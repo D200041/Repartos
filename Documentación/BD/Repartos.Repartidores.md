@@ -1,13 +1,13 @@
 ﻿## Descripción
 
-
+Almacena los datos de los repartidores.
 
 ## Propiedades
 
 |Propiedad|Valor|
 |---------|-----|
-|Fecha De Creación|2020-08-28T19:09:26.197|
-|Última Modificación|2020-08-28T19:09:26.203|
+|Fecha De Creación|2020-09-06T21:30:05.043|
+|Última Modificación|2020-09-06T21:30:05.050|
 |Propietario|dbo|
 |Pertenece Al Esquema|Sí|
 |Esquema|Repartos|
@@ -39,15 +39,15 @@
 
 |Nombre|Descripción|Llave Primaria|Llave Foránea|Permite Nulos|Autonumérica|Inicio Autonumérico|Incremento Autonumérico|Tipo De Dato|Esquema Del Tipo De Dato|Tipo De Dato Del Sistema|Tamaño|Precisión|Escala|Intercalación|Calculada|Relleno Ansi|Columna De Indentidad De Fila|Texto Calculado|Persistida|Nombre Del Valor Por Defecto|Esquema Predeterminado|Nombre Restricción Predeterminada|Regla|Esquema De La Regla|Determinística|Precisa|No Para Replicación|Texto Completo Indexado|Documento XML|Espacio De Nombres Del Esquema XML|Esquema Del Espacio De Nombres Del Esquema XML|
 |------|-----------|--------------|-------------|-------------|------------|-------------------|-----------------------|------------|------------------------|------------------------|------|---------|------|-------------|---------|------------|-----------------------------|---------------|----------|----------------------------|----------------------|---------------------------------|-----|-------------------|--------------|-------|-------------------|-----------------------|-------------|----------------------------------|----------------------------------------------|
-|Id||Sí|No|No|Sí|1|1|int|sys|int|4|10|0||No|No|No||No||||||No|No|False|No|No|||
-|TipoDocumento||No|Sí|No|No|0|0|tinyint|sys|tinyint|1|3|0||No|No|No||No||||||No|No|False|No|No|||
-|Documento||No|No|No|No|0|0|nvarchar|sys|nvarchar|16|0|0|Latin1_General_CS_AS|No|Sí|No||No||||||No|No|False|No|No|||
-|Nombre1||No|No|No|No|0|0|nvarchar|sys|nvarchar|32|0|0|Latin1_General_CS_AS|No|Sí|No||No||||||No|No|False|No|No|||
-|Nombre2||No|No|Sí|No|0|0|nvarchar|sys|nvarchar|32|0|0|Latin1_General_CS_AS|No|Sí|No||No||||||No|No|False|No|No|||
-|Apellido1||No|No|No|No|0|0|nvarchar|sys|nvarchar|32|0|0|Latin1_General_CS_AS|No|Sí|No||No||||||No|No|False|No|No|||
-|Apellido2||No|No|Sí|No|0|0|nvarchar|sys|nvarchar|32|0|0|Latin1_General_CS_AS|No|Sí|No||No||||||No|No|False|No|No|||
-|Nacimiento||No|No|No|No|0|0|date|sys|date|3|10|0||No|No|No||No||||||No|No|False|No|No|||
-|Nacionalidad||No|Sí|No|No|0|0|int|sys|int|4|10|0||No|No|No||No||||||No|No|False|No|No|||
+|Id|Llave autonum�rica de la tabla.|Sí|No|No|Sí|1|1|int|sys|int|4|10|0||No|No|No||No||||||No|No|False|No|No|||
+|TipoDocumento|Tipo de documento del repartidor.|No|Sí|No|No|0|0|tinyint|sys|tinyint|1|3|0||No|No|No||No||||||No|No|False|No|No|||
+|Documento|N�mero del documento del repartidor.|No|No|No|No|0|0|nvarchar|sys|nvarchar|16|0|0|Latin1_General_CS_AS|No|Sí|No||No||||||No|No|False|No|No|||
+|Nombre1|Primer nombre del repartidor.|No|No|No|No|0|0|nvarchar|sys|nvarchar|32|0|0|Latin1_General_CS_AS|No|Sí|No||No||||||No|No|False|No|No|||
+|Nombre2|Segundo nombre del repartidor.|No|No|Sí|No|0|0|nvarchar|sys|nvarchar|32|0|0|Latin1_General_CS_AS|No|Sí|No||No||||||No|No|False|No|No|||
+|Apellido1|Primer apellido del repartidor.|No|No|No|No|0|0|nvarchar|sys|nvarchar|32|0|0|Latin1_General_CS_AS|No|Sí|No||No||||||No|No|False|No|No|||
+|Apellido2|Segundo apellido del repartidor.|No|No|Sí|No|0|0|nvarchar|sys|nvarchar|32|0|0|Latin1_General_CS_AS|No|Sí|No||No||||||No|No|False|No|No|||
+|Nacimiento|Fecha de nacimiento del repartidor.|No|No|No|No|0|0|date|sys|date|3|10|0||No|No|No||No||||||No|No|False|No|No|||
+|Nacionalidad|Nacionalidad del repartidor.|No|Sí|No|No|0|0|int|sys|int|4|10|0||No|No|No||No||||||No|No|False|No|No|||
 
 ## Índices
 
@@ -87,6 +87,26 @@ ALTER TABLE [Repartos].[Repartidores]  WITH CHECK ADD  CONSTRAINT [FK_Repartidor
 REFERENCES [Repartos].[TipoDocumentos] ([Id])
 GO
 ALTER TABLE [Repartos].[Repartidores] CHECK CONSTRAINT [FK_Repartidores_TipoDocumentos]
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Llave autonum�rica de la tabla.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'Repartidores', @level2type=N'COLUMN',@level2name=N'Id'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Tipo de documento del repartidor.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'Repartidores', @level2type=N'COLUMN',@level2name=N'TipoDocumento'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'N�mero del documento del repartidor.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'Repartidores', @level2type=N'COLUMN',@level2name=N'Documento'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Primer nombre del repartidor.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'Repartidores', @level2type=N'COLUMN',@level2name=N'Nombre1'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Segundo nombre del repartidor.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'Repartidores', @level2type=N'COLUMN',@level2name=N'Nombre2'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Primer apellido del repartidor.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'Repartidores', @level2type=N'COLUMN',@level2name=N'Apellido1'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Segundo apellido del repartidor.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'Repartidores', @level2type=N'COLUMN',@level2name=N'Apellido2'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Fecha de nacimiento del repartidor.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'Repartidores', @level2type=N'COLUMN',@level2name=N'Nacimiento'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Nacionalidad del repartidor.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'Repartidores', @level2type=N'COLUMN',@level2name=N'Nacionalidad'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Almacena los datos de los repartidores.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'Repartidores'
 GO
 ~~~
 

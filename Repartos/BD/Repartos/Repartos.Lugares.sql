@@ -69,3 +69,56 @@ BEGIN
 	CHECK CONSTRAINT "FK_Lugares_Lugares";
 END;
 GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Almacena los lugares como barrios, upz, localidades, ciudades, departamentos, países, etc.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'Lugares';
+GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Llave autonumérica de la tabla.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'Lugares',
+	@level2type = N'COLUMN',
+	@level2name = N'Id';
+GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Lugar que contiene al lugar correspondiente a este Id.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'Lugares',
+	@level2type = N'COLUMN',
+	@level2name = N'Padre';
+GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Nombre del barrio, upz, localidad, ciudad, departamento, país, etc.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'Lugares',
+	@level2type = N'COLUMN',
+	@level2name = N'Nombre';
+GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Nacionalidad aplicable únicamente a los lugares correspondientes a países.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'Lugares',
+	@level2type = N'COLUMN',
+	@level2name = N'Nacionalidad';
+GO

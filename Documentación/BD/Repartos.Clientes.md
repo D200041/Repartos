@@ -1,13 +1,13 @@
 ﻿## Descripción
 
-
+Almacena los datos de los clientes.
 
 ## Propiedades
 
 |Propiedad|Valor|
 |---------|-----|
-|Fecha De Creación|2020-08-28T19:09:26.210|
-|Última Modificación|2020-08-28T19:09:26.223|
+|Fecha De Creación|2020-09-06T21:30:05.060|
+|Última Modificación|2020-09-06T21:30:05.077|
 |Propietario|dbo|
 |Pertenece Al Esquema|Sí|
 |Esquema|Repartos|
@@ -39,15 +39,15 @@
 
 |Nombre|Descripción|Llave Primaria|Llave Foránea|Permite Nulos|Autonumérica|Inicio Autonumérico|Incremento Autonumérico|Tipo De Dato|Esquema Del Tipo De Dato|Tipo De Dato Del Sistema|Tamaño|Precisión|Escala|Intercalación|Calculada|Relleno Ansi|Columna De Indentidad De Fila|Texto Calculado|Persistida|Nombre Del Valor Por Defecto|Esquema Predeterminado|Nombre Restricción Predeterminada|Regla|Esquema De La Regla|Determinística|Precisa|No Para Replicación|Texto Completo Indexado|Documento XML|Espacio De Nombres Del Esquema XML|Esquema Del Espacio De Nombres Del Esquema XML|
 |------|-----------|--------------|-------------|-------------|------------|-------------------|-----------------------|------------|------------------------|------------------------|------|---------|------|-------------|---------|------------|-----------------------------|---------------|----------|----------------------------|----------------------|---------------------------------|-----|-------------------|--------------|-------|-------------------|-----------------------|-------------|----------------------------------|----------------------------------------------|
-|Id||Sí|No|No|Sí|1|1|int|sys|int|4|10|0||No|No|No||No||||||No|No|False|No|No|||
-|TipoDocumento||No|Sí|No|No|0|0|tinyint|sys|tinyint|1|3|0||No|No|No||No||||||No|No|False|No|No|||
-|Documento||No|No|No|No|0|0|nvarchar|sys|nvarchar|16|0|0|Latin1_General_CS_AS|No|Sí|No||No||||||No|No|False|No|No|||
-|Nombre1||No|No|No|No|0|0|nvarchar|sys|nvarchar|32|0|0|Latin1_General_CS_AS|No|Sí|No||No||||||No|No|False|No|No|||
-|Nombre2||No|No|Sí|No|0|0|nvarchar|sys|nvarchar|32|0|0|Latin1_General_CS_AS|No|Sí|No||No||||||No|No|False|No|No|||
-|Apellido1||No|No|No|No|0|0|nvarchar|sys|nvarchar|32|0|0|Latin1_General_CS_AS|No|Sí|No||No||||||No|No|False|No|No|||
-|Apellido2||No|No|Sí|No|0|0|nvarchar|sys|nvarchar|32|0|0|Latin1_General_CS_AS|No|Sí|No||No||||||No|No|False|No|No|||
-|Barrio||No|Sí|No|No|0|0|int|sys|int|4|10|0||No|No|No||No||||||No|No|False|No|No|||
-|Domicilio||No|No|No|No|0|0|nvarchar|sys|nvarchar|64|0|0|Latin1_General_CS_AS|No|Sí|No||No||||||No|No|False|No|No|||
+|Id|Llave autonum�rica de la tabla.|Sí|No|No|Sí|1|1|int|sys|int|4|10|0||No|No|No||No||||||No|No|False|No|No|||
+|TipoDocumento|Tipo de documento del cliente.|No|Sí|No|No|0|0|tinyint|sys|tinyint|1|3|0||No|No|No||No||||||No|No|False|No|No|||
+|Documento|N�mero del documento del cliente.|No|No|No|No|0|0|nvarchar|sys|nvarchar|16|0|0|Latin1_General_CS_AS|No|Sí|No||No||||||No|No|False|No|No|||
+|Nombre1|Primer nombre del cliente.|No|No|No|No|0|0|nvarchar|sys|nvarchar|32|0|0|Latin1_General_CS_AS|No|Sí|No||No||||||No|No|False|No|No|||
+|Nombre2|Segundo nombre del cliente.|No|No|Sí|No|0|0|nvarchar|sys|nvarchar|32|0|0|Latin1_General_CS_AS|No|Sí|No||No||||||No|No|False|No|No|||
+|Apellido1|Primer apellido del cliente.|No|No|No|No|0|0|nvarchar|sys|nvarchar|32|0|0|Latin1_General_CS_AS|No|Sí|No||No||||||No|No|False|No|No|||
+|Apellido2|Segundo apellido del cliente.|No|No|Sí|No|0|0|nvarchar|sys|nvarchar|32|0|0|Latin1_General_CS_AS|No|Sí|No||No||||||No|No|False|No|No|||
+|Barrio|Barrio en el que vive el cliente.|No|Sí|No|No|0|0|int|sys|int|4|10|0||No|No|No||No||||||No|No|False|No|No|||
+|Domicilio|Direcci�n en la que vive el cliente.|No|No|No|No|0|0|nvarchar|sys|nvarchar|64|0|0|Latin1_General_CS_AS|No|Sí|No||No||||||No|No|False|No|No|||
 
 ## Índices
 
@@ -87,6 +87,26 @@ ALTER TABLE [Repartos].[Clientes]  WITH CHECK ADD  CONSTRAINT [FK_Clientes_TipoD
 REFERENCES [Repartos].[TipoDocumentos] ([Id])
 GO
 ALTER TABLE [Repartos].[Clientes] CHECK CONSTRAINT [FK_Clientes_TipoDocumentos]
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Llave autonum�rica de la tabla.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'Clientes', @level2type=N'COLUMN',@level2name=N'Id'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Tipo de documento del cliente.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'Clientes', @level2type=N'COLUMN',@level2name=N'TipoDocumento'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'N�mero del documento del cliente.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'Clientes', @level2type=N'COLUMN',@level2name=N'Documento'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Primer nombre del cliente.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'Clientes', @level2type=N'COLUMN',@level2name=N'Nombre1'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Segundo nombre del cliente.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'Clientes', @level2type=N'COLUMN',@level2name=N'Nombre2'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Primer apellido del cliente.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'Clientes', @level2type=N'COLUMN',@level2name=N'Apellido1'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Segundo apellido del cliente.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'Clientes', @level2type=N'COLUMN',@level2name=N'Apellido2'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Barrio en el que vive el cliente.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'Clientes', @level2type=N'COLUMN',@level2name=N'Barrio'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Direcci�n en la que vive el cliente.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'Clientes', @level2type=N'COLUMN',@level2name=N'Domicilio'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Almacena los datos de los clientes.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'Clientes'
 GO
 ~~~
 

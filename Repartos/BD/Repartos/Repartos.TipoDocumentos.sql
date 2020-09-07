@@ -40,3 +40,34 @@ BEGIN
 	) ON "PRIMARY"
 END;
 GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Almacena la información de los tipos de documentos.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'TipoDocumentos';
+GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Código del tipo de documento.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'TipoDocumentos',
+	@level2type = N'COLUMN',
+	@level2name = N'Id';
+GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Nombre del tipo de documento.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'TipoDocumentos',
+	@level2type = N'COLUMN',
+	@level2name = N'Nombre';
+GO

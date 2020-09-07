@@ -1,13 +1,13 @@
 ﻿## Descripción
 
-
+Almacena los lugares como barrios, upz, localidades, ciudades, departamentos, pa�ses, etc.
 
 ## Propiedades
 
 |Propiedad|Valor|
 |---------|-----|
-|Fecha De Creación|2020-08-28T19:09:26.183|
-|Última Modificación|2020-08-28T19:09:26.210|
+|Fecha De Creación|2020-09-06T21:30:05.030|
+|Última Modificación|2020-09-06T21:30:05.060|
 |Propietario|dbo|
 |Pertenece Al Esquema|Sí|
 |Esquema|Repartos|
@@ -39,10 +39,10 @@
 
 |Nombre|Descripción|Llave Primaria|Llave Foránea|Permite Nulos|Autonumérica|Inicio Autonumérico|Incremento Autonumérico|Tipo De Dato|Esquema Del Tipo De Dato|Tipo De Dato Del Sistema|Tamaño|Precisión|Escala|Intercalación|Calculada|Relleno Ansi|Columna De Indentidad De Fila|Texto Calculado|Persistida|Nombre Del Valor Por Defecto|Esquema Predeterminado|Nombre Restricción Predeterminada|Regla|Esquema De La Regla|Determinística|Precisa|No Para Replicación|Texto Completo Indexado|Documento XML|Espacio De Nombres Del Esquema XML|Esquema Del Espacio De Nombres Del Esquema XML|
 |------|-----------|--------------|-------------|-------------|------------|-------------------|-----------------------|------------|------------------------|------------------------|------|---------|------|-------------|---------|------------|-----------------------------|---------------|----------|----------------------------|----------------------|---------------------------------|-----|-------------------|--------------|-------|-------------------|-----------------------|-------------|----------------------------------|----------------------------------------------|
-|Id||Sí|No|No|Sí|1|1|int|sys|int|4|10|0||No|No|No||No||||||No|No|False|No|No|||
-|Padre||No|Sí|Sí|No|0|0|int|sys|int|4|10|0||No|No|No||No||||||No|No|False|No|No|||
-|Nombre||No|No|No|No|0|0|varchar|sys|varchar|32|0|0|Latin1_General_CS_AS|No|Sí|No||No||||||No|No|False|No|No|||
-|Nacionalidad||No|No|Sí|No|0|0|varchar|sys|varchar|32|0|0|Latin1_General_CS_AS|No|Sí|No||No||||||No|No|False|No|No|||
+|Id|Llave autonum�rica de la tabla.|Sí|No|No|Sí|1|1|int|sys|int|4|10|0||No|No|No||No||||||No|No|False|No|No|||
+|Padre|Lugar que contiene al lugar correspondiente a este Id.|No|Sí|Sí|No|0|0|int|sys|int|4|10|0||No|No|No||No||||||No|No|False|No|No|||
+|Nombre|Nombre del barrio, upz, localidad, ciudad, departamento, pa�s, etc.|No|No|No|No|0|0|varchar|sys|varchar|32|0|0|Latin1_General_CS_AS|No|Sí|No||No||||||No|No|False|No|No|||
+|Nacionalidad|Nacionalidad aplicable �nicamente a los lugares correspondientes a pa�ses.|No|No|Sí|No|0|0|varchar|sys|varchar|32|0|0|Latin1_General_CS_AS|No|Sí|No||No||||||No|No|False|No|No|||
 
 ## Índices
 
@@ -77,6 +77,16 @@ ALTER TABLE [Repartos].[Lugares]  WITH CHECK ADD  CONSTRAINT [FK_Lugares_Lugares
 REFERENCES [Repartos].[Lugares] ([Id])
 GO
 ALTER TABLE [Repartos].[Lugares] CHECK CONSTRAINT [FK_Lugares_Lugares]
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Llave autonum�rica de la tabla.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'Lugares', @level2type=N'COLUMN',@level2name=N'Id'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Lugar que contiene al lugar correspondiente a este Id.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'Lugares', @level2type=N'COLUMN',@level2name=N'Padre'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Nombre del barrio, upz, localidad, ciudad, departamento, pa�s, etc.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'Lugares', @level2type=N'COLUMN',@level2name=N'Nombre'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Nacionalidad aplicable �nicamente a los lugares correspondientes a pa�ses.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'Lugares', @level2type=N'COLUMN',@level2name=N'Nacionalidad'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Almacena los lugares como barrios, upz, localidades, ciudades, departamentos, pa�ses, etc.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'Lugares'
 GO
 ~~~
 

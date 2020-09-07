@@ -74,3 +74,111 @@ BEGIN
 	CHECK CONSTRAINT "FK_Repartidores_TipoDocumentos";
 END;
 GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Almacena los datos de los repartidores.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'Repartidores';
+GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Llave autonumérica de la tabla.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'Repartidores',
+	@level2type = N'COLUMN',
+	@level2name = N'Id';
+GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Tipo de documento del repartidor.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'Repartidores',
+	@level2type = N'COLUMN',
+	@level2name = N'TipoDocumento';
+GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Número del documento del repartidor.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'Repartidores',
+	@level2type = N'COLUMN',
+	@level2name = N'Documento';
+GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Primer nombre del repartidor.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'Repartidores',
+	@level2type = N'COLUMN',
+	@level2name = N'Nombre1';
+GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Segundo nombre del repartidor.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'Repartidores',
+	@level2type = N'COLUMN',
+	@level2name = N'Nombre2';
+GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Primer apellido del repartidor.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'Repartidores',
+	@level2type = N'COLUMN',
+	@level2name = N'Apellido1';
+GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Segundo apellido del repartidor.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'Repartidores',
+	@level2type = N'COLUMN',
+	@level2name = N'Apellido2';
+GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Fecha de nacimiento del repartidor.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'Repartidores',
+	@level2type = N'COLUMN',
+	@level2name = N'Nacimiento';
+GO
+
+EXECUTE "sys"."sp_addextendedproperty"
+	@name = N'MS_Description',
+	@value = N'Nacionalidad del repartidor.',
+	@level0type = N'SCHEMA',
+	@level0name = N'Repartos',
+	@level1type = N'TABLE',
+	@level1name = N'Repartidores',
+	@level2type = N'COLUMN',
+	@level2name = N'Nacionalidad';
+GO

@@ -1,13 +1,13 @@
 ﻿## Descripción
 
-
+Almacena la informaci�n de los repartos.
 
 ## Propiedades
 
 |Propiedad|Valor|
 |---------|-----|
-|Fecha De Creación|2020-08-28T19:09:26.223|
-|Última Modificación|2020-08-28T19:09:26.227|
+|Fecha De Creación|2020-09-06T21:30:05.077|
+|Última Modificación|2020-09-06T21:30:05.080|
 |Propietario|dbo|
 |Pertenece Al Esquema|Sí|
 |Esquema|Repartos|
@@ -39,10 +39,10 @@
 
 |Nombre|Descripción|Llave Primaria|Llave Foránea|Permite Nulos|Autonumérica|Inicio Autonumérico|Incremento Autonumérico|Tipo De Dato|Esquema Del Tipo De Dato|Tipo De Dato Del Sistema|Tamaño|Precisión|Escala|Intercalación|Calculada|Relleno Ansi|Columna De Indentidad De Fila|Texto Calculado|Persistida|Nombre Del Valor Por Defecto|Esquema Predeterminado|Nombre Restricción Predeterminada|Regla|Esquema De La Regla|Determinística|Precisa|No Para Replicación|Texto Completo Indexado|Documento XML|Espacio De Nombres Del Esquema XML|Esquema Del Espacio De Nombres Del Esquema XML|
 |------|-----------|--------------|-------------|-------------|------------|-------------------|-----------------------|------------|------------------------|------------------------|------|---------|------|-------------|---------|------------|-----------------------------|---------------|----------|----------------------------|----------------------|---------------------------------|-----|-------------------|--------------|-------|-------------------|-----------------------|-------------|----------------------------------|----------------------------------------------|
-|Id||Sí|No|No|Sí|1|1|int|sys|int|4|10|0||No|No|No||No||||||No|No|False|No|No|||
-|Fecha||No|No|No|No|0|0|smalldatetime|sys|smalldatetime|4|16|0||No|No|No||No||||||No|No|False|No|No|||
-|Cliente||No|Sí|No|No|0|0|int|sys|int|4|10|0||No|No|No||No||||||No|No|False|No|No|||
-|Entregado||No|No|No|No|0|0|bit|sys|bit|1|1|0||No|No|No||No||||||No|No|False|No|No|||
+|Id|C�digo autonum�rico de la tabla.|Sí|No|No|Sí|1|1|int|sys|int|4|10|0||No|No|No||No||||||No|No|False|No|No|||
+|Fecha|Fecha del reparto.|No|No|No|No|0|0|smalldatetime|sys|smalldatetime|4|16|0||No|No|No||No||||||No|No|False|No|No|||
+|Cliente|Cliente a quien va dirigido el reparto.|No|Sí|No|No|0|0|int|sys|int|4|10|0||No|No|No||No||||||No|No|False|No|No|||
+|Entregado|Indica si un reparto fue entregado o no.|No|No|No|No|0|0|bit|sys|bit|1|1|0||No|No|No||No||||||No|No|False|No|No|||
 
 ## Índices
 
@@ -72,6 +72,16 @@ ALTER TABLE [Repartos].[Repartos]  WITH CHECK ADD  CONSTRAINT [FK_Repartos_Clien
 REFERENCES [Repartos].[Clientes] ([Id])
 GO
 ALTER TABLE [Repartos].[Repartos] CHECK CONSTRAINT [FK_Repartos_Clientes]
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'C�digo autonum�rico de la tabla.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'Repartos', @level2type=N'COLUMN',@level2name=N'Id'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Fecha del reparto.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'Repartos', @level2type=N'COLUMN',@level2name=N'Fecha'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Cliente a quien va dirigido el reparto.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'Repartos', @level2type=N'COLUMN',@level2name=N'Cliente'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Indica si un reparto fue entregado o no.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'Repartos', @level2type=N'COLUMN',@level2name=N'Entregado'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Almacena la informaci�n de los repartos.' , @level0type=N'SCHEMA',@level0name=N'Repartos', @level1type=N'TABLE',@level1name=N'Repartos'
 GO
 ~~~
 
