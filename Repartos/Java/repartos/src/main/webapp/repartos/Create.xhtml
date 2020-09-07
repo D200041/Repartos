@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="RepartosCreateDlg" widgetVar="RepartosCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateRepartosTitle}">
+            <h:form id="RepartosCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{repartosController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateRepartosLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{repartosController.selected.id}" title="#{bundle.CreateRepartosTitle_id}" required="true" requiredMessage="#{bundle.CreateRepartosRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreateRepartosLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy HH:mm:ss" value="#{repartosController.selected.fecha}" title="#{bundle.EditRepartosTitle_fecha}" required="true" requiredMessage="#{bundle.EditRepartosRequiredMessage_fecha}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateRepartosLabel_entregado}" for="entregado" />
+                        <p:selectBooleanCheckbox id="entregado" value="#{repartosController.selected.entregado}" required="true" requiredMessage="#{bundle.EditRepartosRequiredMessage_entregado}"/>
+                        <p:outputLabel value="#{bundle.CreateRepartosLabel_cliente}" for="cliente" />
+                        <p:selectOneMenu id="cliente" value="#{repartosController.selected.cliente}" required="true" requiredMessage="#{bundle.EditRepartosRequiredMessage_cliente}">
+                            <f:selectItems value="#{clientesController.itemsAvailableSelectOne}"
+                                           var="clienteItem"
+                                           itemValue="#{clienteItem}"
+                                           itemLabel="#{clienteItem.nombre1.concat(' ').concat(clienteItem.nombre2).concat(' ').concat(clienteItem.apellido1).concat(' ').concat(clienteItem.apellido2)}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{repartosController.create}" value="#{bundle.Save}" update="display,:RepartosListForm:datalist,:growl" oncomplete="handleSubmit(args,'RepartosCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="RepartosCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

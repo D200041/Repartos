@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="RepartidoresViewDlg" widgetVar="RepartidoresViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewRepartidoresTitle}">
+            <h:form id="RepartidoresViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{repartidoresController.selected != null}">
+                        <h:outputText value="#{bundle.ViewRepartidoresLabel_id}"/>
+                        <h:outputText value="#{repartidoresController.selected.id}" title="#{bundle.ViewRepartidoresTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewRepartidoresLabel_documento}"/>
+                        <h:outputText value="#{repartidoresController.selected.documento}" title="#{bundle.ViewRepartidoresTitle_documento}"/>
+                        <h:outputText value="#{bundle.ViewRepartidoresLabel_nombre1}"/>
+                        <h:outputText value="#{repartidoresController.selected.nombre1}" title="#{bundle.ViewRepartidoresTitle_nombre1}"/>
+                        <h:outputText value="#{bundle.ViewRepartidoresLabel_nombre2}"/>
+                        <h:outputText value="#{repartidoresController.selected.nombre2}" title="#{bundle.ViewRepartidoresTitle_nombre2}"/>
+                        <h:outputText value="#{bundle.ViewRepartidoresLabel_apellido1}"/>
+                        <h:outputText value="#{repartidoresController.selected.apellido1}" title="#{bundle.ViewRepartidoresTitle_apellido1}"/>
+                        <h:outputText value="#{bundle.ViewRepartidoresLabel_apellido2}"/>
+                        <h:outputText value="#{repartidoresController.selected.apellido2}" title="#{bundle.ViewRepartidoresTitle_apellido2}"/>
+                        <h:outputText value="#{bundle.ViewRepartidoresLabel_nacimiento}"/>
+                        <h:outputText  value="#{repartidoresController.selected.nacimiento}" title="#{bundle.ViewRepartidoresTitle_nacimiento}">
+                            <f:convertDateTime pattern="yyyy-MM-dd" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewRepartidoresLabel_nacionalidad}"/>
+                        <h:outputText value="#{repartidoresController.selected.nacionalidad.nacionalidad}" title="#{bundle.ViewRepartidoresTitle_nacionalidad}"/>
+                        <h:outputText value="#{bundle.ViewRepartidoresLabel_tipoDocumento}"/>
+                        <h:outputText value="#{repartidoresController.selected.tipoDocumento.nombre}" title="#{bundle.ViewRepartidoresTitle_tipoDocumento}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="RepartidoresViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

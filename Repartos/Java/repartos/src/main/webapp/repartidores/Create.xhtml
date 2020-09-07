@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="RepartidoresCreateDlg" widgetVar="RepartidoresCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateRepartidoresTitle}">
+            <h:form id="RepartidoresCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{repartidoresController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateRepartidoresLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{repartidoresController.selected.id}" title="#{bundle.CreateRepartidoresTitle_id}" required="true" requiredMessage="#{bundle.CreateRepartidoresRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreateRepartidoresLabel_documento}" for="documento" />
+                        <p:inputText id="documento" value="#{repartidoresController.selected.documento}" title="#{bundle.CreateRepartidoresTitle_documento}" required="true" requiredMessage="#{bundle.CreateRepartidoresRequiredMessage_documento}"/>
+                        <p:outputLabel value="#{bundle.CreateRepartidoresLabel_nombre1}" for="nombre1" />
+                        <p:inputText id="nombre1" value="#{repartidoresController.selected.nombre1}" title="#{bundle.CreateRepartidoresTitle_nombre1}" required="true" requiredMessage="#{bundle.CreateRepartidoresRequiredMessage_nombre1}"/>
+                        <p:outputLabel value="#{bundle.CreateRepartidoresLabel_nombre2}" for="nombre2" />
+                        <p:inputText id="nombre2" value="#{repartidoresController.selected.nombre2}" title="#{bundle.CreateRepartidoresTitle_nombre2}" />
+                        <p:outputLabel value="#{bundle.CreateRepartidoresLabel_apellido1}" for="apellido1" />
+                        <p:inputText id="apellido1" value="#{repartidoresController.selected.apellido1}" title="#{bundle.CreateRepartidoresTitle_apellido1}" required="true" requiredMessage="#{bundle.CreateRepartidoresRequiredMessage_apellido1}"/>
+                        <p:outputLabel value="#{bundle.CreateRepartidoresLabel_apellido2}" for="apellido2" />
+                        <p:inputText id="apellido2" value="#{repartidoresController.selected.apellido2}" title="#{bundle.CreateRepartidoresTitle_apellido2}" />
+                        <p:outputLabel value="#{bundle.CreateRepartidoresLabel_nacimiento}" for="nacimiento" />
+                        <p:calendar id="nacimiento" pattern="yyyy-MM-dd" value="#{repartidoresController.selected.nacimiento}" title="#{bundle.CreateRepartidoresTitle_nacimiento}" required="true" requiredMessage="#{bundle.CreateRepartidoresRequiredMessage_nacimiento}"  showOn="button"/>
+
+                        <p:outputLabel value="#{bundle.CreateRepartidoresLabel_nacionalidad}" for="nacionalidad" />
+                        <p:selectOneMenu id="nacionalidad" value="#{repartidoresController.selected.nacionalidad}" required="true" requiredMessage="#{bundle.EditRepartidoresRequiredMessage_nacionalidad}">
+                            <f:selectItems value="#{lugaresController.itemsAvailableSelectOne}"
+                                           var="nacionalidadItem"
+                                           itemValue="#{nacionalidadItem}"
+                                           itemLabel="#{nacionalidadItem.nacionalidad}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateRepartidoresLabel_tipoDocumento}" for="tipoDocumento" />
+                        <p:selectOneMenu id="tipoDocumento" value="#{repartidoresController.selected.tipoDocumento}" required="true" requiredMessage="#{bundle.EditRepartidoresRequiredMessage_tipoDocumento}">
+                            <f:selectItems value="#{tipoDocumentosController.itemsAvailableSelectOne}"
+                                           var="tipoDocumentoItem"
+                                           itemValue="#{tipoDocumentoItem}"
+                                           itemLabel="#{tipoDocumentoItem.nombre}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{repartidoresController.create}" value="#{bundle.Save}" update="display,:RepartidoresListForm:datalist,:growl" oncomplete="handleSubmit(args,'RepartidoresCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="RepartidoresCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="RepartidoresEditDlg" widgetVar="RepartidoresEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditRepartidoresTitle}">
+            <h:form id="RepartidoresEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{repartidoresController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditRepartidoresLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{repartidoresController.selected.id}" title="#{bundle.EditRepartidoresTitle_id}" required="true" requiredMessage="#{bundle.EditRepartidoresRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditRepartidoresLabel_documento}" for="documento" />
+                        <p:inputText id="documento" value="#{repartidoresController.selected.documento}" title="#{bundle.EditRepartidoresTitle_documento}" required="true" requiredMessage="#{bundle.EditRepartidoresRequiredMessage_documento}"/>
+                        <p:outputLabel value="#{bundle.EditRepartidoresLabel_nombre1}" for="nombre1" />
+                        <p:inputText id="nombre1" value="#{repartidoresController.selected.nombre1}" title="#{bundle.EditRepartidoresTitle_nombre1}" required="true" requiredMessage="#{bundle.EditRepartidoresRequiredMessage_nombre1}"/>
+                        <p:outputLabel value="#{bundle.EditRepartidoresLabel_nombre2}" for="nombre2" />
+                        <p:inputText id="nombre2" value="#{repartidoresController.selected.nombre2}" title="#{bundle.EditRepartidoresTitle_nombre2}" />
+                        <p:outputLabel value="#{bundle.EditRepartidoresLabel_apellido1}" for="apellido1" />
+                        <p:inputText id="apellido1" value="#{repartidoresController.selected.apellido1}" title="#{bundle.EditRepartidoresTitle_apellido1}" required="true" requiredMessage="#{bundle.EditRepartidoresRequiredMessage_apellido1}"/>
+                        <p:outputLabel value="#{bundle.EditRepartidoresLabel_apellido2}" for="apellido2" />
+                        <p:inputText id="apellido2" value="#{repartidoresController.selected.apellido2}" title="#{bundle.EditRepartidoresTitle_apellido2}" />
+                        <p:outputLabel value="#{bundle.EditRepartidoresLabel_nacimiento}" for="nacimiento" />
+                        <p:calendar id="nacimiento" pattern="yyyy-MM-dd" value="#{repartidoresController.selected.nacimiento}" title="#{bundle.EditRepartidoresTitle_nacimiento}" required="true" requiredMessage="#{bundle.EditRepartidoresRequiredMessage_nacimiento}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditRepartidoresLabel_nacionalidad}" for="nacionalidad" />
+                        <p:selectOneMenu id="nacionalidad" value="#{repartidoresController.selected.nacionalidad}" required="true" requiredMessage="#{bundle.EditRepartidoresRequiredMessage_nacionalidad}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{lugaresController.itemsAvailableSelectOne}"
+                                           var="nacionalidadItem"
+                                           itemValue="#{nacionalidadItem}"
+                                           itemLabel="#{nacionalidadItem.nacionalidad}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditRepartidoresLabel_tipoDocumento}" for="tipoDocumento" />
+                        <p:selectOneMenu id="tipoDocumento" value="#{repartidoresController.selected.tipoDocumento}" required="true" requiredMessage="#{bundle.EditRepartidoresRequiredMessage_tipoDocumento}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{tipoDocumentosController.itemsAvailableSelectOne}"
+                                           var="tipoDocumentoItem"
+                                           itemValue="#{tipoDocumentoItem}"
+                                           itemLabel="#{tipoDocumentoItem.nombre}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{repartidoresController.update}" value="#{bundle.Save}" update="display,:RepartidoresListForm:datalist,:growl" oncomplete="handleSubmit(args, 'RepartidoresEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="RepartidoresEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

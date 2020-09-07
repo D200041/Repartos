@@ -2,10 +2,23 @@
 <persistence version="2.2" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
   <!-- Define Persistence Unit -->
   <persistence-unit name="my_persistence_unit">
-    <class>edu.umng.repartos.jpa.entities.Lugares</class>
+    <class>edu.umng.repartos.Lugares</class>
+    <class>edu.umng.repartos.Repartos</class>
+    <class>edu.umng.repartos.Repartidores</class>
+    <class>edu.umng.repartos.TiposDeDocumento</class>
+    <class>edu.umng.repartos.Clientes</class>
+    <class>edu.umng.repartos.jpa.entities.Repartidores</class>
     <class>edu.umng.repartos.jpa.entities.Clientes</class>
     <class>edu.umng.repartos.jpa.entities.Repartos</class>
-    <class>edu.umng.repartos.jpa.entities.Repartidores</class>
+    <class>edu.umng.repartos.jpa.entities.TiposDeDocumento</class>
+    <class>edu.umng.repartos.jpa.entities.Lugares</class>
     <class>edu.umng.repartos.jpa.entities.TipoDocumentos</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:jtds:sqlserver://LAPTOP-3G8ISEE0:1433/Repartos"/>
+      <property name="javax.persistence.jdbc.user" value="sa"/>
+      <property name="javax.persistence.jdbc.driver" value="net.sourceforge.jtds.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="S93123032s"/>
+      <property name="javax.persistence.schema-generation.database.action" value="none"/>
+    </properties>
   </persistence-unit>
 </persistence>
